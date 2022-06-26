@@ -3,7 +3,6 @@ import React, { useMemo } from 'react'
 
 import Image from './Image'
 import CustomLink from './Link'
-import { BlogNewsletterForm } from './NewsletterForm'
 import Pre from './Pre'
 import TOCInline from './TOCInline'
 
@@ -23,10 +22,8 @@ export const MDXComponents: ComponentMap = {
   pre: Pre,
   wrapper: Wrapper,
 
-  // 自定义 JSX 替换组件
   Image,
   TOCInline,
-  BlogNewsletterForm,
 }
 
 interface Props {

@@ -1,17 +1,18 @@
 ---
-name: Tails Azimuth
+name: Tom Klotz
 avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
-github: https://github.com
-juejin: https://juejin.cn/
+occupation: Software engineer
+company: Castor
+email: tomklotz.pro@gmail.com
+twitter: https://twitter.com/klotz_tom
+linkedin: https://www.linkedin.com/in/tom-klotz-11a617134/
+github: https://github.com/TomKlotzPro
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+Currently working on React (typescript), Node(typescript) and Python at Castor which is a company focusing on building the best Data Catalog on the market 🚀
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
+Computer science lover, and big fan of Motorcycle!
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+I've worked 3 years at Algolia in the API Client Squad, Shopify Team and DX Team!
+
+Don't hesitate to reach me if you want to discuss about search experience or software engineering in general.
