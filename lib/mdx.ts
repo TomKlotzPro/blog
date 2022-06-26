@@ -20,9 +20,7 @@ import remarkImgToJsx from './remark-img-to-jsx'
 import remarkTocHeadings from './remark-toc-headings'
 import getAllFilesRecursively from './utils/files'
 
-import type { AuthorFrontMatter } from 'types/AuthorFrontMatter'
-import type { PostFrontMatter } from 'types/PostFrontMatter'
-import type { Toc } from 'types/Toc'
+import type { AuthorFrontMatter, PostFrontMatter, Toc } from '../types'
 
 const root = process.cwd()
 
@@ -30,9 +28,7 @@ export function getFiles(type: 'blog' | 'authors') {
   const prefixPaths = path.join(root, 'data', type)
   const files = getAllFilesRecursively(prefixPaths)
   // Only want to return blog/path and ignore root, replace is needed to work on Windows
-  return files.map((file) =>
-    file.slice(prefixPaths.length + 1).replace(/\\/g, '/'),
-  )
+  return files.map((file) => file.slice(prefixPaths.length + 1).replace(/\\/g, '/'))
 }
 
 export function formatSlug(slug: string) {
@@ -45,32 +41,16 @@ export function dateSortDesc(a: string, b: string) {
   return 0
 }
 
-export async function getFileBySlug(
-  type: 'authors' | 'blog',
-  slug: string | string[],
-) {
+export async function getFileBySlug(type: 'authors' | 'blog', slug: string | string[]) {
   const mdxPath = path.join(root, 'data', type, `${slug}.mdx`)
   const mdPath = path.join(root, 'data', type, `${slug}.md`)
-  const source = fs.existsSync(mdxPath)
-    ? fs.readFileSync(mdxPath, 'utf8')
-    : fs.readFileSync(mdPath, 'utf8')
+  const source = fs.existsSync(mdxPath) ? fs.readFileSync(mdxPath, 'utf8') : fs.readFileSync(mdPath, 'utf8')
 
   // https://github.com/kentcdodds/mdx-bundler#nextjs-esbuild-enoent
   if (process.platform === 'win32') {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      root,
-      'node_modules',
-      'esbuild',
-      'esbuild.exe',
-    )
+    process.env.ESBUILD_BINARY_PATH = path.join(root, 'node_modules', 'esbuild', 'esbuild.exe')
   } else {
-    process.env.ESBUILD_BINARY_PATH = path.join(
-      root,
-      'node_modules',
-      'esbuild',
-      'bin',
-      'esbuild',
-    )
+    process.env.ESBUILD_BINARY_PATH = path.join(root, 'node_modules', 'esbuild', 'bin', 'esbuild')
   }
 
   const toc: Toc = []
@@ -147,9 +127,7 @@ export async function getAllFilesFrontMatter(folder: 'blog') {
       allFrontMatter.push({
         ...frontmatter,
         slug: formatSlug(fileName),
-        date: frontmatter.date
-          ? new Date(frontmatter.date).toISOString()
-          : null,
+        date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
       })
     }
   })

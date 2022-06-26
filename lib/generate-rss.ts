@@ -1,7 +1,8 @@
-import siteMetadata from '@/data/siteMetadata'
-import { escape } from '@/lib/utils/htmlEscaper'
+import { siteMetadata } from '../data'
 
-import type { PostFrontMatter } from 'types/PostFrontMatter'
+import { escape } from './utils'
+
+import type { PostFrontMatter } from '../types'
 
 const generateRssItem = (post: PostFrontMatter) => `
   <item>
@@ -15,23 +16,18 @@ const generateRssItem = (post: PostFrontMatter) => `
   </item>
 `
 
-const generateRss = (posts: PostFrontMatter[], page = 'feed.xml') => `
+export const generateRss = (posts: PostFrontMatter[], page = 'feed.xml') => `
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>${escape(siteMetadata.title)}</title>
       <link>${siteMetadata.siteUrl}/blog</link>
       <description>${escape(siteMetadata.description)}</description>
       <language>${siteMetadata.language}</language>
-      <managingEditor>${siteMetadata.email} (${
-  siteMetadata.author
-})</managingEditor>
+      <managingEditor>${siteMetadata.email} (${siteMetadata.author})</managingEditor>
       <webMaster>${siteMetadata.email} (${siteMetadata.author})</webMaster>
       <lastBuildDate>${new Date(posts[0].date).toUTCString()}</lastBuildDate>
-      <atom:link href="${
-        siteMetadata.siteUrl
-      }/${page}" rel="self" type="application/rss+xml"/>
+      <atom:link href="${siteMetadata.siteUrl}/${page}" rel="self" type="application/rss+xml"/>
       ${posts.map(generateRssItem).join('')}
     </channel>
   </rss>
 `
-export default generateRss

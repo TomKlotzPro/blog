@@ -1,5 +1,4 @@
-import { slug } from 'github-slugger'
+//@ts-nocheck
+import { slug } from 'github-slugger' // eslint-disable-line
 
-const kebabCase = (str: string) => slug(str)
-
-export default kebabCase
+export const kebabCase = (str: string) => slug(str)

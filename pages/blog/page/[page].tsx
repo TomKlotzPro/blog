@@ -1,16 +1,11 @@
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
-import ListLayout from '@/layouts/ListLayout'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
-
+import { PageSEO } from '../../../components'
+import { siteMetadata } from '../../../data'
+import { ListLayout } from '../../../layouts'
+import { getAllFilesFrontMatter } from '../../../lib'
 import { POSTS_PER_PAGE } from '../../blog'
 
-import type {
-  GetStaticPaths,
-  GetStaticProps,
-  InferGetStaticPropsType,
-} from 'next'
-import type { PostFrontMatter } from 'types/PostFrontMatter'
+import type { PostFrontMatter } from '../../../types'
+import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 
 export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
   const totalPosts = await getAllFilesFrontMatter('blog')
@@ -35,10 +30,7 @@ export const getStaticProps: GetStaticProps<{
   } = context
   const posts = await getAllFilesFrontMatter('blog')
   const pageNumber = parseInt(page as string)
-  const initialDisplayPosts = posts.slice(
-    POSTS_PER_PAGE * (pageNumber - 1),
-    POSTS_PER_PAGE * pageNumber,
-  )
+  const initialDisplayPosts = posts.slice(POSTS_PER_PAGE * (pageNumber - 1), POSTS_PER_PAGE * pageNumber)
   const pagination = {
     currentPage: pageNumber,
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
@@ -60,16 +52,8 @@ export default function PostPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSEO
-        title={siteMetadata.title}
-        description={siteMetadata.description}
-      />
-      <ListLayout
-        posts={posts}
-        initialDisplayPosts={initialDisplayPosts}
-        pagination={pagination}
-        title='All Posts'
-      />
+      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <ListLayout posts={posts} initialDisplayPosts={initialDisplayPosts} pagination={pagination} title='All Posts' />
     </>
   )
 }

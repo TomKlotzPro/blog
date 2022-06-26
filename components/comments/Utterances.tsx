@@ -1,7 +1,7 @@
 import { useTheme } from 'next-themes'
 import React, { useState, useEffect, useCallback } from 'react'
 
-import siteMetadata from '@/data/siteMetadata'
+import { siteMetadata } from '../../data'
 
 interface Props {
   issueTerm: string
@@ -21,7 +21,7 @@ const Utterances = ({ issueTerm }: Props) => {
     setEnabledLoadComments(false)
     const script = document.createElement('script')
     script.src = 'https://utteranc.es/client.js'
-    script.setAttribute('repo', siteMetadata.comment.utterancesConfig.repo)
+    script.setAttribute('repo', siteMetadata.comment.utterancesConfig.repo as string)
     script.setAttribute('issue-term', issueTerm)
     script.setAttribute('label', siteMetadata.comment.utterancesConfig.label)
     script.setAttribute('theme', commentsTheme)
@@ -48,9 +48,7 @@ const Utterances = ({ issueTerm }: Props) => {
   // Added `relative` to fix a weird bug with `utterances-frame` position
   return (
     <div className='pt-6 pb-6 text-center text-gray-700 dark:text-gray-300'>
-      {enableLoadComments && (
-        <button onClick={LoadComments}>Load Comments</button>
-      )}
+      {enableLoadComments && <button onClick={LoadComments}>Load Comments</button>}
       <div className='utterances-frame relative' id={COMMENTS_ID} />
     </div>
   )

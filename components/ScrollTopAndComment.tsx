@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const ScrollTopAndComment = () => {
+export const ScrollTopAndComment = () => {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
@@ -16,15 +16,13 @@ const ScrollTopAndComment = () => {
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
   const handleScrollToComment = () => {
-    document.getElementById('comment').scrollIntoView()
+    document.getElementById('comment')?.scrollIntoView()
   }
+
   return (
-    <div
-      className={`fixed right-8 bottom-8 hidden flex-col gap-3 ${
-        show ? 'md:flex' : 'md:hidden'
-      }`}
-    >
+    <div className={`fixed right-8 bottom-8 hidden flex-col gap-3 ${show ? 'md:flex' : 'md:hidden'}`}>
       <button
         aria-label='Scroll To Comment'
         type='button'
@@ -56,5 +54,3 @@ const ScrollTopAndComment = () => {
     </div>
   )
 }
-
-export default ScrollTopAndComment

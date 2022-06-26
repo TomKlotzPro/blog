@@ -1,19 +1,10 @@
 import fs from 'fs'
 
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import PageTitle from '@/components/PageTitle'
-import generateRss from '@/lib/generate-rss'
-import {
-  formatSlug,
-  getAllFilesFrontMatter,
-  getFileBySlug,
-  getFiles,
-} from '@/lib/mdx'
+import { MDXLayoutRenderer, PageTitle } from '../../components'
+import { formatSlug, generateRss, getAllFilesFrontMatter, getFileBySlug, getFiles } from '../../lib'
 
+import type { AuthorFrontMatter, PostFrontMatter, Toc } from '../../types'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import type { AuthorFrontMatter } from 'types/AuthorFrontMatter'
-import type { PostFrontMatter } from 'types/PostFrontMatter'
-import type { Toc } from 'types/Toc'
 
 const DEFAULT_LAYOUT = 'PostLayout'
 
@@ -36,7 +27,7 @@ export const getStaticProps: GetStaticProps<{
   prev?: { slug: string; title: string }
   next?: { slug: string; title: string }
 }> = async ({ params }) => {
-  const slug = (params.slug as string[]).join('/')
+  const slug = (params?.slug as string[]).join('/')
   const allPosts = await getAllFilesFrontMatter('blog')
   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === slug)
   const prev: { slug: string; title: string } = allPosts[postIndex + 1] || null
@@ -66,12 +57,7 @@ export const getStaticProps: GetStaticProps<{
   }
 }
 
-export default function Blog({
-  post,
-  authorDetails,
-  prev,
-  next,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Blog({ post, authorDetails, prev, next }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { mdxSource, toc, frontMatter } = post
 
   return (

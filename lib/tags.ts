@@ -4,9 +4,9 @@ import path from 'path'
 import matter from 'gray-matter'
 
 import { getFiles } from './mdx'
-import kebabCase from './utils/kebabCase'
+import { kebabCase } from './utils'
 
-import type { PostFrontMatter } from 'types/PostFrontMatter'
+import type { PostFrontMatter } from '../types'
 
 const root = process.cwd()
 

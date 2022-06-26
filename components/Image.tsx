@@ -2,6 +2,4 @@ import NextImage from 'next/image'
 
 import type { ImageProps } from 'next/image'
 
-const Image = ({ ...rest }: ImageProps) => <NextImage {...rest} />
-
-export default Image
+export const Image = ({ ...rest }: ImageProps) => <NextImage {...rest} />
