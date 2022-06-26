@@ -14,9 +14,6 @@ export default function Footer() {
             size={1.5}
           />
           <SocialIcon kind='github' href={siteMetadata.github} size={1.5} />
-          <SocialIcon kind='juejin' href={siteMetadata.juejin} size={1.5} />
-          <SocialIcon kind='facebook' href={siteMetadata.facebook} size={1.5} />
-          <SocialIcon kind='youtube' href={siteMetadata.youtube} size={1.5} />
           <SocialIcon kind='linkedin' href={siteMetadata.linkedin} size={1.5} />
           <SocialIcon kind='twitter' href={siteMetadata.twitter} size={1.5} />
         </div>
@@ -27,11 +24,7 @@ export default function Footer() {
           <div>{` • `}</div>
           <Link href='/'>{siteMetadata.title}</Link>
         </div>
-        <div className='mb-8 text-sm text-gray-500 dark:text-gray-400'>
-          <Link href='https://github.com/yunsii/tailwind-nextjs-typescript-starter-blog'>
-            Tailwind Nextjs Typescript Theme
-          </Link>
-        </div>
+        <div className='mb-8 text-sm text-gray-500 dark:text-gray-400'></div>
       </div>
     </footer>
   )
