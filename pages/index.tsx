@@ -1,5 +1,4 @@
 import Link from '@/components/Link'
-import NewsletterForm from '@/components/NewsletterForm'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
@@ -101,9 +100,7 @@ export default function Home({
         </div>
       )}
       {siteMetadata.newsletter.provider !== '' && (
-        <div className='flex items-center justify-center pt-4'>
-          <NewsletterForm />
-        </div>
+        <div className='flex items-center justify-center pt-4'></div>
       )}
     </>
   )
