@@ -25,17 +25,10 @@ export interface SocialIconProps {
   size?: number
 }
 
-const SocialIcon = ({ kind, href, size = 2 }: SocialIconProps) => {
-  if (
-    !href ||
-    (kind === 'mail' &&
-      !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))
-  )
-    return null
+export const SocialIcon = ({ kind, href, size = 2 }: SocialIconProps) => {
+  if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))) return null
 
-  const SocialSvg = components[kind] as React.ComponentType<
-    React.SVGProps<SVGSVGElement> & { title?: string }
-  >
+  const SocialSvg = components[kind] as React.ComponentType<React.SVGProps<SVGSVGElement> & { title?: string }>
 
   return (
     <a
@@ -55,5 +48,3 @@ const SocialIcon = ({ kind, href, size = 2 }: SocialIconProps) => {
     </a>
   )
 }
-
-export default SocialIcon

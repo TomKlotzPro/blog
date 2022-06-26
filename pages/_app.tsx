@@ -3,12 +3,11 @@ import 'katex/dist/katex.css'
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 
-import { ClientReload } from '@/components/ClientReload'
-import LayoutWrapper from '@/components/LayoutWrapper'
-import Analytics from '@/components/analytics'
 import '@/css/prism.css'
 import '@/css/tailwind.css'
-import siteMetadata from '@/data/siteMetadata'
+
+import { Analytics, ClientReload, LayoutWrapper } from '../components'
+import { siteMetadata } from '../data'
 
 import type { AppProps } from 'next/app'
 

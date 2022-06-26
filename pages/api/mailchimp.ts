@@ -1,3 +1,4 @@
+/* eslint-disable */
 import mailchimp from '@mailchimp/mailchimp_marketing'
 
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -16,7 +17,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
+    await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID || '', {
       email_address: email,
       status: 'subscribed',
     })

@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { slug } from 'github-slugger'
+import { slug } from 'github-slugger' // eslint-disable-line
 import { toString } from 'mdast-util-to-string'
 import { visit } from 'unist-util-visit'
 

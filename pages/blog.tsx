@@ -1,7 +1,7 @@
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
-import ListLayout from '@/layouts/ListLayout'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
+import { PageSEO } from '../components'
+import { siteMetadata } from '../data'
+import { ListLayout } from '../layouts'
+import { getAllFilesFrontMatter } from '../lib'
 
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import type { ComponentProps } from 'react'
@@ -30,16 +30,8 @@ export default function Blog({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSEO
-        title={`Blog - ${siteMetadata.author}`}
-        description={siteMetadata.description}
-      />
-      <ListLayout
-        posts={posts}
-        initialDisplayPosts={initialDisplayPosts}
-        pagination={pagination}
-        title='All Posts'
-      />
+      <PageSEO title={`Blog - ${siteMetadata.author}`} description={siteMetadata.description} />
+      <ListLayout posts={posts} initialDisplayPosts={initialDisplayPosts} pagination={pagination} title='All Posts' />
     </>
   )
 }

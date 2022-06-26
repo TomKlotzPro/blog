@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic'
 
-import siteMetadata from '@/data/siteMetadata'
+import { siteMetadata } from '../../data'
 
-import type { PostFrontMatter } from 'types/PostFrontMatter'
+import type { PostFrontMatter } from '../../types'
 
 interface Props {
   frontMatter: PostFrontMatter
@@ -10,29 +10,26 @@ interface Props {
 
 const UtterancesComponent = dynamic(
   () => {
-    return import('@/components/comments/Utterances')
+    return import('./Utterances')
   },
   { ssr: false },
 )
 const GiscusComponent = dynamic(
   () => {
-    return import('@/components/comments/Giscus')
+    return import('./Giscus')
   },
   { ssr: false },
 )
 const DisqusComponent = dynamic(
   () => {
-    return import('@/components/comments/Disqus')
+    return import('./Disqus')
   },
   { ssr: false },
 )
 
 const Comments = ({ frontMatter }: Props) => {
   let term
-  switch (
-    siteMetadata.comment.giscusConfig.mapping ||
-    siteMetadata.comment.utterancesConfig.issueTerm
-  ) {
+  switch (siteMetadata.comment.giscusConfig.mapping || siteMetadata.comment.utterancesConfig.issueTerm) {
     case 'pathname':
       term = frontMatter.slug
       break
@@ -45,13 +42,10 @@ const Comments = ({ frontMatter }: Props) => {
   }
   return (
     <div id='comment'>
-      {siteMetadata.comment && siteMetadata.comment.provider === 'giscus' && (
-        <GiscusComponent mapping={term} />
+      {siteMetadata.comment && siteMetadata.comment.provider === 'giscus' && <GiscusComponent mapping={term} />}
+      {siteMetadata.comment && siteMetadata.comment.provider === 'utterances' && (
+        <UtterancesComponent issueTerm={term} />
       )}
-      {siteMetadata.comment &&
-        siteMetadata.comment.provider === 'utterances' && (
-          <UtterancesComponent issueTerm={term} />
-        )}
       {siteMetadata.comment && siteMetadata.comment.provider === 'disqus' && (
         <DisqusComponent frontMatter={frontMatter} />
       )}

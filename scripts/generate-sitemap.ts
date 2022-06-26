@@ -4,7 +4,7 @@ import globby from 'globby'
 import matter from 'gray-matter'
 import * as prettier from 'prettier'
 
-import siteMetadata from '../data/siteMetadata'
+import { siteMetadata } from '../data'
 ;(async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
   const pages = await globby([
@@ -45,10 +45,7 @@ import siteMetadata from '../data/siteMetadata'
                   .replace('/feed.xml', '')
                 const route = path === '/index' ? '' : path
 
-                if (
-                  page.search('pages/404.') > -1 ||
-                  page.search(`pages/blog/[...slug].`) > -1
-                ) {
+                if (page.search('pages/404.') > -1 || page.search(`pages/blog/[...slug].`) > -1) {
                   return
                 }
                 return `

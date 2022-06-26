@@ -1,14 +1,9 @@
-import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
-import { BlogSEO } from '@/components/SEO'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import SectionContainer from '@/components/SectionContainer'
-import Comments from '@/components/comments'
-import siteMetadata from '@/data/siteMetadata'
-import formatDate from '@/lib/utils/formatDate'
+import { BlogSEO, Link, PageTitle, ScrollTopAndComment, SectionContainer } from '../components'
+import { siteMetadata } from '../data'
+import { formatDate } from '../lib'
 
+import type { PostFrontMatter } from '../types'
 import type { ReactNode } from 'react'
-import type { PostFrontMatter } from 'types/PostFrontMatter'
 
 interface Props {
   frontMatter: PostFrontMatter
@@ -17,12 +12,7 @@ interface Props {
   prev?: { slug: string; title: string }
 }
 
-export default function PostLayout({
-  frontMatter,
-  next,
-  prev,
-  children,
-}: Props) {
+export default function PostLayout({ frontMatter, next, prev, children }: Props) {
   const { slug, date, title } = frontMatter
 
   return (
@@ -51,11 +41,8 @@ export default function PostLayout({
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
             <div className='divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0'>
-              <div className='prose max-w-none pt-10 pb-8 dark:prose-dark'>
-                {children}
-              </div>
+              <div className='prose max-w-none pt-10 pb-8 dark:prose-dark'>{children}</div>
             </div>
-            <Comments frontMatter={frontMatter} />
             <footer>
               <div className='flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base'>
                 {prev && (

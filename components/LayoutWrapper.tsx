@@ -1,10 +1,9 @@
-import headerNavLinks from '@/data/headerNavLinks'
-import siteMetadata from '@/data/siteMetadata'
+import { headerNavLinks, siteMetadata } from '../data'
 
 import Footer from './Footer'
-import Link from './Link'
+import { CustomLink as Link } from './Link'
 import MobileNav from './MobileNav'
-import SectionContainer from './SectionContainer'
+import { SectionContainer } from './SectionContainer'
 import ThemeSwitch from './ThemeSwitch'
 
 import type { ReactNode } from 'react'
@@ -13,7 +12,7 @@ interface Props {
   children: ReactNode
 }
 
-const LayoutWrapper = ({ children }: Props) => {
+export const LayoutWrapper = ({ children }: Props) => {
   return (
     <SectionContainer>
       <div className='flex h-screen flex-col justify-between'>
@@ -21,11 +20,9 @@ const LayoutWrapper = ({ children }: Props) => {
           <div>
             <Link href='/' aria-label={siteMetadata.headerTitle}>
               <div className='flex items-center justify-between'>
-                <div className='flex items-center sm:mr-3'></div>
+                <div className='flex items-center sm:mr-3' />
                 {typeof siteMetadata.headerTitle === 'string' ? (
-                  <div className='hidden text-2xl font-semibold sm:block'>
-                    {siteMetadata.headerTitle}
-                  </div>
+                  <div className='hidden text-2xl font-semibold sm:block'>{siteMetadata.headerTitle}</div>
                 ) : (
                   siteMetadata.headerTitle
                 )}
@@ -54,5 +51,3 @@ const LayoutWrapper = ({ children }: Props) => {
     </SectionContainer>
   )
 }
-
-export default LayoutWrapper

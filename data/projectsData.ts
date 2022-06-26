@@ -1,4 +1,4 @@
-const projectsData = [
+export const projectsData = [
   {
     title: 'A Search Engine',
     description: `What if you could look up any information in the world? Webpages, images, videos
@@ -16,5 +16,3 @@ const projectsData = [
     href: '/blog/the-time-machine',
   },
 ]
-
-export default projectsData
