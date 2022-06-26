@@ -74,7 +74,7 @@ export default function Home({
                       <div className='text-base font-medium leading-6'>
                         <Link
                           href={`/blog/${slug}`}
-                          className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+                          className='text-purple-500 hover:text-purple-600 dark:hover:text-purple-400'
                           aria-label={`Read "${title}"`}
                         >
                           Read more &rarr;
@@ -92,7 +92,7 @@ export default function Home({
         <div className='flex justify-end text-base font-medium leading-6'>
           <Link
             href='/blog'
-            className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+            className='text-purple-500 hover:text-purple-600 dark:hover:text-purple-400'
             aria-label='all posts'
           >
             All Posts &rarr;
