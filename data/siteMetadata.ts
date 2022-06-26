@@ -9,6 +9,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/TomKlotzPro/blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
+  socialBanner: '/static/images/card.png',
   email: 'tomklotz.pro@gmail.com',
   github: 'https://github.com/TomKlotzPro',
   twitter: 'https://twitter.com/klotz_tom',
