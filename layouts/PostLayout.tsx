@@ -105,7 +105,7 @@ export default function PostLayout({
                           {author.twitter && (
                             <Link
                               href={author.twitter}
-                              className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+                              className='text-purple-500 hover:text-purple-600 dark:hover:text-purple-400'
                             >
                               {author.twitter.replace(
                                 'https://twitter.com/',
@@ -154,7 +154,7 @@ export default function PostLayout({
                         <h2 className='text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400'>
                           Previous Article
                         </h2>
-                        <div className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'>
+                        <div className='text-purple-500 hover:text-purple-600 dark:hover:text-purple-400'>
                           <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
                         </div>
                       </div>
@@ -164,7 +164,7 @@ export default function PostLayout({
                         <h2 className='text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400'>
                           Next Article
                         </h2>
-                        <div className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'>
+                        <div className='text-purple-500 hover:text-purple-600 dark:hover:text-purple-400'>
                           <Link href={`/blog/${next.slug}`}>{next.title}</Link>
                         </div>
                       </div>
@@ -175,7 +175,7 @@ export default function PostLayout({
               <div className='pt-4 xl:pt-8'>
                 <Link
                   href='/blog'
-                  className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+                  className='text-purple-500 hover:text-purple-600 dark:hover:text-purple-400'
                 >
                   &larr; Back to the blog
                 </Link>
