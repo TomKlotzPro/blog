@@ -1,5 +1,3 @@
-English | [简体中文](./README.zh-CN.md)
-
 # Tailwind Nextjs TypeScript Starter Blog
 
 > Blogging starter template based on [Tailwind](https://github.com/tailwindlabs/tailwindcss) + [Next.js](https://github.com/vercel/next.js) + **[TypeScript](https://github.com/microsoft/TypeScript)**.
@@ -15,7 +13,3 @@ I originally thought that started from ZERO, the workload or too screaming after
 [Document](https://github.com/timlrx/tailwind-nextjs-starter-blog#tailwind-nextjs-starter-blog)
 
 > Based on [timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) branch of [typescript](https://github.com/timlrx/tailwind-nextjs-starter-blog/tree/typescript), commit [update to v1.5.1](https://github.com/timlrx/tailwind-nextjs-starter-blog/tree/8afcd74c2b03111037ab426c0ac913ac87c3b0c1). Temporarily refer to the original repo document, follow-up to improve own document.
-
-## Credits
-
-- [timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)
