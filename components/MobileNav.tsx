@@ -31,7 +31,7 @@ const MobileNav = () => {
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 20 20'
           fill='currentColor'
-          className='text-gray-900 dark:text-gray-100'
+          className='text-purple-900 dark:text-gray-100'
         >
           {navShow ? (
             <path
@@ -64,7 +64,7 @@ const MobileNav = () => {
             <div key={link.title} className='px-12 py-4'>
               <Link
                 href={link.href}
-                className='text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100'
+                className='text-2xl font-bold tracking-widest text-purple-900 dark:text-gray-100'
                 onClick={onToggleNav}
               >
                 {link.title}

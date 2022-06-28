@@ -28,7 +28,7 @@ class MyDocument extends Document {
             href='/static/favicons/safari-pinned-tab.svg'
             color='#5bbad5'
           />
-          <meta name='msapplication-TileColor' content='#000000' />
+          <meta name='msapplication-TileColor' content='#00000' />
           <meta name='theme-color' content='#000000' />
           <link rel='alternate' type='application/rss+xml' href='/feed.xml' />
         </Head>
