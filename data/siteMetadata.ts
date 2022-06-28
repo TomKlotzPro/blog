@@ -2,7 +2,7 @@ const siteMetadata = {
   title: "Tom Klotz's Blog",
   author: 'Tom Klotz',
   headerTitle: 'Happy to see you here!',
-  description: 'A blog created with Next.js and Tailwind.css',
+  description: "I wish you a good reading, don't hesitate to take a ☕️",
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.tomklotz.tech/',
